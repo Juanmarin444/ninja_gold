@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NINJA MONEY</title>
+    </head>
+    <body>
+        <div>
+            <p>Gold: {{request.session.number}}</p>
+            <form action='/farm' method='post'>
+                {% csrf_token %}
+                <h2>Farm</h2>
+                <p>(earns 10-20 golds)</p>
+                <input type='submit' value='submit'>
+            </form>
+
+            <form action='/cave' method='post'>
+                {% csrf_token %}
+                <h2>Cave</h2>
+                <p>(earns 5-10 golds)</p>
+                <input type='submit' value='submit'>
+            </form>
+
+            <form action='/house' method='post'>
+                {% csrf_token %}
+                <h2>House</h2>
+                <p>(earns 2-5 golds)</p>
+                <input type='submit' value='submit'>
+            </form>
+
+            <form action='/casino' method='post'>
+                {% csrf_token %}
+                <h2>Casion</h2>
+                <p>(earns/takes 0-50 golds)</p>
+                <input type='submit' value='submit'>
+            </form>
+        </div> 
+        <div>
+            <h2>Activities:</h2>
+            {% for x in request.session.activities %}
+                {% if x.gold >= 0 %}
+                    <p>Earned {{ x.gold }} gold from {{ x.location }}!</p>
+                {% else %}
+                    <p>Aww poo you lost {{ x.gold }} gold from {{ x.location }}!</p>
+                {% endif %}    
+            {% endfor %}
+        </div>   
+    </body>
+</html>

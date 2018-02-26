@@ -1,0 +1,12 @@
+appnope==0.1.0
+backports.shutil-get-terminal-size==1.0.0
+decorator==4.2.1
+Django==1.10
+enum34==1.1.6
+ipython-genutils==0.2.0
+pexpect==4.4.0
+ptyprocess==0.5.2
+Pygments==2.2.0
+simplegeneric==0.8.1
+six==1.11.0
+traitlets==4.3.2
